@@ -10,8 +10,9 @@ def index():
 def submit():
     name = request.form['name']
     email = request.form['email']
+    reg = request.form["reg"]
     phone = request.form.get('phone', '')  # Optional field
-    user = User(name=name, email=email, phone=phone)
+    user = User(name=name, email=email, reg=reg, phone=phone)
     db.session.add(user)
     db.session.commit()
     return redirect(url_for('index'))
